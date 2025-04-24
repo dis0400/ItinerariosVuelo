@@ -12,7 +12,7 @@ const destinos = [
 export default function HorasScreen() {
   const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0));
   const destino = destinos[selectedIndex.row];
-  const diferencia = destino.offset - (-4); // Simulamos que estás en La Paz
+  const diferencia = destino.offset - (-4);
 
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
