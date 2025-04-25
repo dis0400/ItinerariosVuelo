@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Layout, Text, Button, Card } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native';
 
 const rutasDisponibles = [
   { id: '1', origen: 'LPB', destino: 'CBB', hora: '10:00' },
@@ -19,6 +20,7 @@ export default function RutasScreen() {
 
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>    
       <Text category="h4" style={{ marginBottom: 20 }}>
         Rutas Disponibles
       </Text>
@@ -37,6 +39,7 @@ export default function RutasScreen() {
           </Button>
         </Card>
       ))}
+      </ScrollView>  
     </Layout>
   );
 }

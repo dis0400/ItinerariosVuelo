@@ -1,6 +1,7 @@
 import { Layout, Text, Card } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
 import vuelosData from '../assets/data/cronograma_vuelos.json'; 
+import { ScrollView } from 'react-native';
 
 const usuario = "Bugs Bunny";
 
@@ -9,6 +10,7 @@ export default function ItinerarioScreen() {
 
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
       <Text category="h4" style={{ marginBottom: 20 }}>
         Itinerario de {usuario}
       </Text>
@@ -27,6 +29,7 @@ export default function ItinerarioScreen() {
           </Card>
         ))
       )}
+      </ScrollView>
     </Layout>
   );
 }

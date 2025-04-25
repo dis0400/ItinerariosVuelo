@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Layout, Text, List, ListItem, Button } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native';
 
 const notificacionesSimuladas = [
   'Cambio de horario en vuelo LPB → MIA: ahora 11:30 AM',
@@ -25,6 +26,7 @@ export default function NotificacionesScreen() {
 
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
       <Text category="h4" style={{ marginBottom: 10 }}>
         Notificaciones
       </Text>
@@ -37,6 +39,7 @@ export default function NotificacionesScreen() {
         data={notificaciones}
         renderItem={({ item }) => <ListItem title={item} />}
       />
+      </ScrollView>
     </Layout>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Layout, Text, Select, SelectItem, IndexPath } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native';
 
 const destinos = [
   { ciudad: 'La Paz', offset: -4 },
@@ -16,6 +17,7 @@ export default function HorasScreen() {
 
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
       <Text category="h4" style={{ marginBottom: 10 }}>
         Cálculo de Diferencia Horaria
       </Text>
@@ -34,6 +36,7 @@ export default function HorasScreen() {
       <Text category="s1">
         Diferencia horaria con {destino.ciudad}: {diferencia} horas
       </Text>
+      </ScrollView>
     </Layout>
   );
 }

@@ -1,5 +1,6 @@
 import { Layout, Text, Card } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native';
 
 const usuario = {
   nombre: 'Alexia Marin',
@@ -15,6 +16,7 @@ const usuario = {
 export default function PerfilScreen() {
   return (
     <Layout style={{ flex: 1, padding: 20 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
       <Text category="h4" style={{ marginBottom: 20 }}>
         Resumen del Tripulante
       </Text>
@@ -43,6 +45,7 @@ export default function PerfilScreen() {
           <Text key={i}>• {n}</Text>
         ))}
       </Card>
+      </ScrollView>
     </Layout>
   );
 }
