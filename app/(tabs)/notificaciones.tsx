@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Layout, Text, List, ListItem, Button } from '@ui-kitten/components';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native';
@@ -13,32 +13,34 @@ const notificacionesSimuladas = [
 export default function NotificacionesScreen() {
   const [notificaciones, setNotificaciones] = useState<string[]>([]);
 
-  const agregarNotificacion = () => {
+  const agregarNotificacion = useCallback(() => {
     const nueva = notificacionesSimuladas[Math.floor(Math.random() * notificacionesSimuladas.length)];
     setNotificaciones((prev) => [nueva, ...prev]);
-  };
-
-  useEffect(() => {
-    // Simular notificación cada 10 segundos
-    const interval = setInterval(agregarNotificacion, 10000);
-    return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      agregarNotificacion();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [agregarNotificacion]);
+
   return (
-    <Layout style={{ flex: 1, padding: 20 }}>
+    <Layout style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ padding: 20 }}>
-      <Text category="h4" style={{ marginBottom: 10 }}>
-        Notificaciones
-      </Text>
+        <Text category="h4" style={{ marginBottom: 10 }}>
+          Notificaciones
+        </Text>
 
-      <Button onPress={agregarNotificacion} style={{ marginBottom: 15 }}>
-        Generar notificación
-      </Button>
+        <Button onPress={agregarNotificacion} style={{ marginBottom: 15 }}>
+          Generar notificación
+        </Button>
 
-      <List
-        data={notificaciones}
-        renderItem={({ item }) => <ListItem title={item} />}
-      />
+        <List
+          data={notificaciones}
+          renderItem={({ item }) => <ListItem title={item} />}
+        />
       </ScrollView>
     </Layout>
   );

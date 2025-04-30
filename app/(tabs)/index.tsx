@@ -9,7 +9,7 @@ export default function ItinerarioScreen() {
   const vuelosAsignados = vuelosData.filter(v => v.nombreTripulante === usuario);
 
   return (
-    <Layout style={{ flex: 1, padding: 20 }}>
+    <Layout style={{ flex: 1}}>
       <ScrollView contentContainerStyle={{ padding: 20 }}>
       <Text category="h4" style={{ marginBottom: 20 }}>
         Itinerario de {usuario}
