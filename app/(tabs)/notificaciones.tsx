@@ -22,7 +22,6 @@ export default function NotificacionesScreen() {
     const interval = setInterval(() => {
       agregarNotificacion();
     }, 10000);
-
     return () => clearInterval(interval);
   }, [agregarNotificacion]);
 
